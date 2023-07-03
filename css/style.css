@@ -1,5 +1,32 @@
+body{
+    padding-top: 75px;
+}
+
 .box-shadow{
     box-shadow: 0 1px 4px 0 #0003,
                 0 2px 8px #0003
     ;
+}
+
+.icon{
+    height: 100px;
+}
+
+.bg-quote{
+    background: url('../assets/images/bg-quote.jpg') center center;
+    background-size: cover;  
+}
+
+
+/* media query */
+@media screen and (max-width: 767px) {
+    .bg-quote .display-4{
+        font-size: 2.25rem;
+    }
+    body{
+        padding: 0;
+    }
+    .fixed-top{
+        position: relative;
+    }
 }

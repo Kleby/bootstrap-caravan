@@ -10,6 +10,12 @@
 			integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
 			crossorigin="anonymous">
 
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+			crossorigin="anonymous">
+
 		<script
 			src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
 			integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
@@ -18,12 +24,51 @@
 			src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"
 			integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS"
 			crossorigin="anonymous"></script>
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+			crossorigin="anonymous"></script>
 
-			<link rel="stylesheet" href="/css/style.css">
+		<link rel="stylesheet" href="/css/style.css">
 	</head>
 	<body>
-		<header class="fixed-top box-shadow">
-			<nav class="navbar navbar-expand-md navbar-light bg-light py-3">
+		<!-- Modal -->
+		<div
+			class="modal fade"
+			id="modalLogin"
+			tabindex="-1"
+			aria-labelledby="modalLoginTitle"
+			aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h1 class="modal-title fs-5" id="modalLoginTitle">Entre na sua conta</h1>
+						<button type="button" class="btn-close" data-bs-dismiss="modal"
+							aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						<form action="">
+							<div class="form-group">
+								<lable class="form-label" for="email-modal">Email</lable>
+								<input type="email" class="form-control" id="email-modal">
+							</div>
+							<div class="form-group">
+								<lable class="form-label" for="psswd-modal">Senha</lable>
+								<input type="password" class="form-control" id="psswd-modal	">
+							</div>
+							<button type="submit" class="btn btn-primary">Entrar na conta</button>
+							<small class="form-text text-muted">
+								Esqueceu a senha? <a href="#" style="text-decoration: none;">Clique aqui.</a>
+							</small>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--  -->
+
+		<header class="fixed-top box-shadow ">
+			<nav class="navbar navbar-expand-md navbar-light bg-light p-3">
 				<a href="index.html" class="navbar-brand">
 					<img src="/assets/images/caravan.svg" alt="Caravan">
 
@@ -35,37 +80,31 @@
 					<span class="navbar-toggler-icon"></span>
 				</button>
 				<div class="collapse navbar-collapse"
-					id="navbarSupportedContent"
-				>
+					id="navbarSupportedContent">
 					<ul class="navbar-nav ml-auto">
 						<li class="nav-item dropdown">
-							<a 
-								href="#" 
+							<a
+								href="#"
 								class="nav-link dropdown-toggle"
 								id="navbarDropdown"
 								role="button"
 								data-bs-toggle="dropdown"
 								aria-haspopup="true"
-								aria-expanded="false"	 
-							>locais</a>
-							<ul 
+								aria-expanded="false">locais</a>
+							<ul
 								class="dropdown-menu"
-								aria-labelledby="=navbarDropdown"
-							><li>
-								<a href="pages/local.html"
-								class="dropdown-item"
-								> local 1</a>
-							</li>
-							<li>
-								<a href="pages/local.html"
-								class="dropdown-item"
-								>local 2</a>
-							</li>
-							<li>
-								<a href="pages/local.html"
-								class="dropdown-item"
-								>local 3</a>
-							</li>
+								aria-labelledby="=navbarDropdown"><li>
+									<a href="pages/local.html"
+										class="dropdown-item"> local 1</a>
+								</li>
+								<li>
+									<a href="pages/local.html"
+										class="dropdown-item">local 2</a>
+								</li>
+								<li>
+									<a href="pages/local.html"
+										class="dropdown-item">local 3</a>
+								</li>
 							</ul>
 						</li>
 						<li class="nav-item">
@@ -75,13 +114,15 @@
 							<a href="pages/contato.html" class="nav-link">Contato</a>
 						</li>
 						<li class="nav-item">
-							<a href="#" class="nav-link">Login</a>
+							<a href="#" class="nav-link" data-bs-toggle="modal"
+								data-bs-target="#modalLogin">
+								Login
+							</a>
 						</li>
 						<li class="nav-item">
-							<a 
-								href="pages/inscricao.html" 
-								class="btn btn-outline-primary ml-md-2"
-							>Inscreva-se</a>
+							<a
+								href="pages/inscricao.html"
+								class="btn btn-outline-primary ml-md-2">Inscreva-se</a>
 						</li>
 					</ul>
 				</div>
@@ -89,7 +130,169 @@
 		</header>
 
 		<main>
+			<section class="container-fluid text-white mt-1">
+				<div class="row bg-dark rounded-md-top">
+					<div class="col-lg-7 p-sm-0 p-2">
+						<div
+							id="carouselCidade"
+							class="carousel slide carousel-fade"
+							data-bs-ride="carousel">
+							<ol class="carousel-indicators">
+								<li data-bs-target="#carouselCidade"
+									data-bs-slide-to="0" class="active" aria-current="true"
+									aria-label="Slide 1"></li>
+								<li data-bs-target="#carouselCidade"
+									data-bs-slide-to="1" aria-label="Slide 2"></li>
+								<li data-bs-target="#carouselCidade"
+									data-bs-slide-to="2" aria-label="Slide 3"></li>
+							</ol>
+							<div class="carousel-inner">
+								<div class="carousel-item active">
+									<img src="./assets/images/dublin.jpg" class="d-block w-100 rounded-md"
+										alt="Dublin City">
+									<div class="carousel-caption d-md-block">
+										<h5 class="display-4">Dublin</h5>
+									</div>
+								</div>
+								<div class="carousel-item">
+									<img src="./assets/images/california.jpg" class="d-block w-100 rounded-md"
+										alt="California City">
+									<div class="carousel-caption d-md-block">
+										<h5 class="display-4">California</h5>
+									</div>
+								</div>
+								<div class="carousel-item">
+									<img src="./assets/images/paris.jpg" class="d-block w-100 rounded"
+										alt="Paris City">
+									<div class="carousel-caption d-md-block">
+										<h5 class="display-4">Paris</h5>
+									</div>
+								</div>
+							</div>
+							<button class="carousel-control-prev btn outline-none" type="button"
+								data-bs-target="#carouselCidade" data-bs-slide="prev">
+								<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+								<span class="sr-only">Anterior</span>
+							</button>
+							<button class="carousel-control-next btn outline-none" type="button"
+								data-bs-target="#carouselCidade" data-bs-slide="next">
+								<span class="carousel-control-next-icon" aria-hidden="true"></span>
+								<span class="sr-only">Próximo</span>
+							</button>
+						</div>
+					</div>
+					<div class="col-lg-5 p-4">
+						<h1 class="display-4">
+							Realize a viajem do seu sonho!
+						</h1>
+						<p class="lead">
+							O melhor local para viajar é com a Caravan, mais de 5.000 excursões
+							concluídas.
+						</p>
+						<form action>
+							<div class="input-group input-group-lg">
+								<input
+									type="text"
+									class="form-control"
+									placeholder="E-mail"
+									aria-label="E-mail"
+									aria-describedby="btn-submit-email"
+									id="btn-submit-email">
+								<button
+									class="btn btn-primary"
+									type="submit"
+									id="btn-submit-email">
+									Inscreva-se
+								</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</section>
+			<section class="py-5 bg-light">
+				<div class="container text-center">
+					<div class="my-5">
+						<p class="h5">TUDO DE MELHOR PARA VOCÊ</p>
+						<h2 class="display-4 text-primary ">Aproveite as vantagens</h2>
+					</div>
+					<div class="row py-2">
+						<div class="col-xl-4 col-md-6 my-2">
+							<div class="d-flex justify-content-center icon">
+								<img src="./assets/images/icones/passaporte.svg" alt="Passaporte">
+							</div>
 
+							<h3 class="my-2">Documentos</h3>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum, qui ex
+								perspiciatis illum quasi porro dolores pariatur quas animi obcaecati sed
+								dolorem numquam, minima delectus exercitationem, labore quos? Omnis,
+								inventore.</p>
+						</div>
+						<div class="col-xl-4 col-md-6 my-2">
+							<div class="d-flex justify-content-center icon">
+								<img src="./assets/images/icones/passagens.svg" alt="Passagens">
+							</div>
+							<h3 class="my-2">Passagem</h3>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum, qui ex
+								perspiciatis illum quasi porro dolores pariatur quas animi obcaecati sed
+								dolorem numquam, minima delectus exercitationem, labore quos? Omnis,
+								inventore.</p>
+						</div>
+						<div class="col-xl-4 col-md-6 my-2">
+							<div class="d-flex justify-content-center icon">
+								<img src="./assets/images/icones/translado.svg" alt="Translado ">
+							</div>
+							<h3 class="my-2">Translado</h3>
+							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis
+								distinctio iste quia nobis dolorem consequatur provident voluptatibus
+								voluptate error odio odit, tempora cum dolores eius optio laudantium
+								fugiat voluptas a?</p>
+						</div>
+						<div class="col-xl-4 col-md-6 my-2">
+							<div class="d-flex justify-content-center icon">
+								<img src="./assets/images/icones/praias.svg" alt="Praia">
+							</div>
+
+							<h3 class="my-2">Praias</h3>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum, qui ex
+								perspiciatis illum quasi porro dolores pariatur quas animi obcaecati sed
+								dolorem numquam, minima delectus exercitationem, labore quos? Omnis,
+								inventore.</p>
+						</div>
+						<div class="col-xl-4 col-md-6 my-2">
+							<div class="d-flex justify-content-center icon">
+								<img src="./assets/images/icones/bagagens.svg" alt="Bagagens">
+							</div>
+							<h3 class="my-2">Bagagens</h3>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum, qui ex
+								perspiciatis illum quasi porro dolores pariatur quas animi obcaecati sed
+								dolorem numquam, minima delectus exercitationem, labore quos? Omnis,
+								inventore.</p>
+						</div>
+						<div class="col-xl-4 col-md-6 my-2">
+							<div class="d-flex justify-content-center icon">
+								<img src="./assets/images/icones/turismo.svg" alt="Turismo">
+							</div>
+							<h3 class="my-2">Turismo</h3>
+							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis
+								distinctio iste quia nobis dolorem consequatur provident voluptatibus
+								voluptate error odio odit, tempora cum dolores eius optio laudantium
+								fugiat voluptas a?</p>
+						</div>
+					</div>
+					<a href="./pages/planos.html" class="btn btn-primary btn-lg mt-3">Compar
+						plano</a>
+				</div>
+			</section>
+			<section class="bg-quote p-md-5 p-3">
+				<blockquote class="blockquote text-center text-light p-md-5 p-3">
+					<p class="display-4">
+						<em>
+							"A felicidade não está na estrada que leva a algum lugar. A felicidade é a própria estrada"
+						</em>
+						<footer class="blockquote-footer text-light">Bob Dylan</footer>
+					</p>
+				</blockquote>
+			</section>
 		</main>
 
 		<footer>
